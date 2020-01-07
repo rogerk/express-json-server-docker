@@ -1,0 +1,18 @@
+version: "3"
+services:
+    app:
+        container_name: docker-node-json-server
+        restart: always
+        build: .
+        environment:
+            - DB_HOST=json-server
+        ports:
+            - "4001:4001"
+    json-server:
+        container_name: json-server
+        build: ./db
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./db/db.json:/data/db.json
+        command: json-server --watch /data/db.json --host 0.0.0.0
