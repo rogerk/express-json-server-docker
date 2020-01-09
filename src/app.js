@@ -8,6 +8,7 @@ const dbPort = process.env.DB_PORT;
 const dbHost = process.env.DB_HOST;
 
 const app = express();
+app.set("json spaces", 2);
 
 app.get("/matrix", async (req, res) => {
     try {
