@@ -1,7 +1,8 @@
 version: "3"
 services:
     app:
-        container_name: docker-node-json-server
+        container_name: app-container
+        image: app-image
         restart: always
         build: .
         environment:
@@ -9,7 +10,8 @@ services:
         ports:
             - "4001:4001"
     json-server:
-        container_name: json-server
+        container_name: json-server-container
+        image: json-server-image
         build: ./db
         ports:
             - "3000:3000"
